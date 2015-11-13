@@ -203,13 +203,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static void addButton(EditText stat)
     {
-        if(stat.getText().toString() != null) {
+        if(!(stat.getText().toString().equals(""))) {
             int temp = Integer.parseInt(stat.getText().toString());
             temp = temp + 1;
             String newString = Integer.toString(temp);
             stat.setText(newString);
         }
-        else
+       else
         {
             stat.setText(Integer.toString(1));
         }
@@ -217,21 +217,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void minusButton(EditText stat)
     {
-        int temp = Integer.parseInt(stat.getText().toString());
-        if(temp == 0)
-        {
-            Context context = getApplicationContext();
-            CharSequence text = "Your STAT cannot be less than zero.";
-            int duration = Toast.LENGTH_SHORT;
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-            stat.setText(Integer.toString(0));
+        if(!(stat.getText().toString().equals(""))) {
+
+            int temp = Integer.parseInt(stat.getText().toString());
+
+            if (temp == 0) {
+                Context context = getApplicationContext();
+                CharSequence text = "Your STAT cannot be less than zero.";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                stat.setText(Integer.toString(0));
+            } else {
+                temp = temp - 1;
+               String newString = Integer.toString(temp);
+                stat.setText(newString);
+            }
         }
-        else {
-            temp = temp - 1;
-            String newString = Integer.toString(temp);
-            stat.setText(newString);
+        else{
+            stat.setText(Integer.toString(0));
         }
     }
 
