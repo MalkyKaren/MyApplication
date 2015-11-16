@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public static void addButton(EditText stat)
     {
-        if(!(stat.getText().toString().equals(""))) {
+        if(!(stat.getText().toString().trim().length() == 0)) {
             int temp = Integer.parseInt(stat.getText().toString());
             temp = temp + 1;
             String newString = Integer.toString(temp);
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void minusButton(EditText stat)
     {
 
-        if(!(stat.getText().toString().equals(""))) {
+        if(!(stat.getText().toString().trim().length() == 0)) {
 
             int temp = Integer.parseInt(stat.getText().toString());
 
